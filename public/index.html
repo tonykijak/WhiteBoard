@@ -3,15 +3,38 @@
 <head>
   <meta charset="utf-8">
   <title>WhiteBoarding</title>
+  <style type="text/css">
+    canvas {
+      border: 5px solid grey;
+    }
+
+    .canvas-container {
+      display: inline-block;
+    }
+
+    .conversations-wrapper {
+      display: inline-block;
+      vertical-align: top;
+      padding: 20px;
+    }
+
+  </style>
 </head>
 <body>
-  <div>hello</div>
   <div id="app"></div>
 </body>
 <script crossorigin src="https://unpkg.com/react@16/umd/react.development.js"></script>
 <script crossorigin src="https://unpkg.com/react-dom@16/umd/react-dom.development.js"></script>
 <script type="text/javascript" src="bundle.js"></script>
 <script>
-  ReactDOM.render(React.createElement(App), document.getElementById('app'));
+
+const ws = new WebSocket('ws://localhost:8080/');
+ws.binaryType = 'arraybuffer';
+
+ws.onopen = function websocketOnOpen() {
+  console.log('websocket is connected ...');
+};
+
+ReactDOM.render(React.createElement(App, { ws }), document.getElementById('app'));
 </script>
 </html>
