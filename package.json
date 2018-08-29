@@ -5,7 +5,7 @@
   "main": "index.js",
   "scripts": {
     "test": "echo 'this is a test",
-    "start": "node server/index.js",
+    "start": "nodemon server/index.js",
     "build": "webpack --watch"
   },
   "author": "",
@@ -28,7 +28,10 @@
   "dependencies": {
     "cors": "^2.8.4",
     "express": "^4.16.3",
+    "mongoose": "^5.2.9",
+    "pg": "^7.4.3",
     "react": "^16.4.2",
-    "react-dom": "^16.4.2"
+    "react-dom": "^16.4.2",
+    "ws": "^6.0.0"
   }
 }
